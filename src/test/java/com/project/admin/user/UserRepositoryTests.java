@@ -2,6 +2,8 @@ package com.project.admin.user;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.Optional;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -19,15 +21,56 @@ public class UserRepositoryTests {
     @Autowired
     private UserRepository userRepository;
 
+    // CREATE
     @Test
     public void testCreateUser() {
-        User userGurkay = new User();
-        userGurkay.setEmail("gunesebak@gmail.com");
-        userGurkay.setPassword("gurkay12345");
-        userGurkay.setFirstName("Gürkay");
-        userGurkay.setLastName("BAŞYİĞİT");
+        User user = new User();
+        user.setEmail("test4@gmail.com");
+        user.setPassword("gurkay12345");
+        user.setFirstName("test4");
+        user.setLastName("test4");
 
-        User savedUser = userRepository.save(userGurkay);
+        User savedUser = userRepository.save(user);
         assertThat(savedUser.getId()).isGreaterThan(0);
+    }
+
+    // READ
+    @Test
+    public void testReadUser(){
+        Integer userId = 1;
+
+        Optional<User> findById = userRepository.findById(userId);
+
+        assertThat(findById).isPresent();
+
+        User user = findById.get();
+        System.out.println(user);
+    }
+
+    // UPDATE
+    @Test
+    public void testUpdateUser(){
+        Integer userId = 1;
+        String lastName = "YİĞİT";
+
+        User user = userRepository.findById(userId).get();
+
+        user.setLastName(lastName);
+
+        User updatedUser = userRepository.save(user);
+
+        assertThat(updatedUser.getLastName()).isEqualTo(lastName);
+    }
+
+    // DELETE
+    @Test
+    public void testDeleteUser(){
+        Integer userId = 1;
+
+        userRepository.deleteById(userId);
+
+        Optional<User> findById = userRepository.findById(userId);
+
+        assertThat(findById).isPresent();
     }
 }
