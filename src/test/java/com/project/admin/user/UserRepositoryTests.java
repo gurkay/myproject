@@ -25,10 +25,10 @@ public class UserRepositoryTests {
     @Test
     public void testCreateUser() {
         User user = new User();
-        user.setEmail("test4@gmail.com");
+        user.setEmail("test5@gmail.com");
         user.setPassword("gurkay12345");
-        user.setFirstName("test4");
-        user.setLastName("test4");
+        user.setFirstName("test5");
+        user.setLastName("test5");
 
         User savedUser = userRepository.save(user);
         assertThat(savedUser.getId()).isGreaterThan(0);
