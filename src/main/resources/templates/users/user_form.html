@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/page_head :: my_page_head(${pageTitle}, 'none')}"></head>
+
+<body>
+
+    <div class="container-fluid p-2">
+
+        <div th:replace="~{fragments/navigation :: menu}"></div>
+
+        <div>
+
+            <h2>[[${pageTitle}]]</h2>
+
+        </div>
+
+        <form method="post" th:object="${user}">
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+    <div th:fragment="menu">
+
+        <nav class="navbar navbar-expand-sm navbar-light bg-light" aria-label="My Project Navbar">
+            <div class="container-fluid">
+                <a th:href="@{/}">
+                    <img class="img-fluid" th:src="@{/images/myLogo1.png}" style="height:50px" />
+                </a>
+    
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarsMyProject" aria-controls="navbarsMyProject" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+    
+                <div class="navbar-collapse collapse" id="navbarsMyProject">
+                    <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" th:href="@{/}">Home</a>
+                        </li>
+    
+                        <li id="myDropdownMenu" class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                                aria-expanded="false">Users</a>
+                            <ul class="dropdown-menu">
+                                <li><a id="dropdownMenuItemCreate" class="dropdown-item" th:href="@{/users/new}">Creat</a></li>
+                                <li><a id="dropdownMenuItemView" class="dropdown-item" href="#">View</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+    </div>
+
+</body>
+
+</html>
