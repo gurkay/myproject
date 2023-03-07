@@ -11,9 +11,9 @@
 
         <div>
 
-            <h2>Hello My Project</h2>
+            <h2>My Project</h2>
 
-            <div>
+            <div th:if="${message != null}" class="alert alert-success text-center">
                 <h1>[[${message}]]</h1>
             </div>
 
