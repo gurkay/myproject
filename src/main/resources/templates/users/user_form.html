@@ -19,7 +19,7 @@
             [[${message}]]
         </div>
 
-        <form  method="post" th:object="${user}">
+        <form th:action="@{/users/save}" method="post" th:object="${user}">
 
             <div class="border border-secondary rounded p-3">
 
