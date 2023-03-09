@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/page_head :: my_page_head(${pageTitle}, 'none')}"></head>
+
+<body>
+
+    <div class="container-fluid p-2">
+
+        <div th:replace="~{fragments/navigation :: menu}"></div>
+
+        <div>
+
+            <h2>[[${pageTitle}]]</h2>
+
+        </div>
+
+        <div th:if="${message != null}" class="alert alert-success text-center">
+            [[${message}]]
+        </div>
+
+        <div class="full-details">
+
+            <div class="table-responsive-xl">
+                <table class="table table-bordered table-striped table-hover">
+
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Id</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+
+                    <tbody th:each="user : ${listAllUsers}">
+                        <tr>
+                            <th>[[${user.id}]]</th>
+                            <th>[[${user.firstName}]]</th>
+                            <th>[[${user.lastName}]]</th>
+                            <th><a href="">Edit</a></th>
+                            <th><a href="">Delete</a></th>
+                        </tr>
+                        <tr>
+                            <th>safsdaf</th>
+                            <th>asfsd</th>
+                            <th>afdssadf</th>
+                            <th><a href="">Edit</a></th>
+                            <th><a href="">Delete</a></th>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

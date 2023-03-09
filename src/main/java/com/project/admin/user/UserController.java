@@ -1,5 +1,7 @@
 package com.project.admin.user;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +16,16 @@ public class UserController {
     
     @Autowired
     private UserService userService;
+
+    @GetMapping("/users")
+    public String listUsers(Model model) {
+
+        List<User> users = userService.listAllUsers();
+
+        model.addAttribute("users", users);
+
+        return "users/users";
+    }
 
     @GetMapping("/users/new")
     public String newUser(Model model) {
@@ -32,6 +44,6 @@ public class UserController {
 
         redirectAttributes.addFlashAttribute("message", "User : " + savedUser.getFirstName() + " saved.");
 
-        return "redirect:/";
+        return "users/users";
     }
 }
