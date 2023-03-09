@@ -20,9 +20,10 @@ public class UserController {
     @GetMapping("/users")
     public String listUsers(Model model) {
 
-        List<User> users = userService.listAllUsers();
+        List<User> listAllUsers = userService.listAllUsers();   
 
-        model.addAttribute("users", users);
+        model.addAttribute("listAllUsers", listAllUsers);
+        model.addAttribute("pageTitle", "All Users");
 
         return "users/users";
     }
