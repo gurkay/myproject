@@ -32,6 +32,6 @@ public class UserController {
 
         redirectAttributes.addFlashAttribute("message", "User : " + savedUser.getFirstName() + " saved.");
 
-        return "redirect:/index";
+        return "redirect:/";
     }
 }
