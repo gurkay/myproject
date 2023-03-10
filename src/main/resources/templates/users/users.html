@@ -39,7 +39,7 @@
                             <th>[[${user.id}]]</th>
                             <th>[[${user.firstName}]]</th>
                             <th>[[${user.lastName}]]</th>
-                            <th><a href="">Edit</a></th>
+                            <th><a th:href="@{/users/edit/} + ${user.id}">Edit</a></th>
                             <th><a href="">Delete</a></th>
                         </tr>
                     </tbody>
