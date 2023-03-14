@@ -46,7 +46,7 @@ public class UserController {
 
         redirectAttributes.addFlashAttribute("message", "User : " + savedUser.getFirstName() + " saved.");
 
-        return "users/users";
+        return "redirect:/users";
     }
 
     @GetMapping("/users/edit/{id}")
